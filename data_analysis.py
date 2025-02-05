@@ -17,7 +17,7 @@ print(data.describe())
 print(data.isnull().sum())
 
 #correlation between numerical values
-print(data.corr())
+print(data.drop(columns = ["species"]).corr())
 
 #CREATE VISUALISATIONS:
 
@@ -26,10 +26,10 @@ sns.pairplot(data, hue = "species")
 plt.show()
 
 #(ii) Correlation Heatmap
-sns.heatmap(data.corr(), annot = True , cmap = 'coolwarm')
+sns.heatmap(data.drop(columns = ["species"]).corr(), annot = True , cmap = 'coolwarm')
 plt.show()
 
 #(iii) Boxplot
 
-sns.boxplot(x = 'species', y = 'sepel_length', data = data)
+sns.boxplot(x = 'species', y = 'sepal_length', data = data)
 plt.show()
